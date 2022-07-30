@@ -1,0 +1,30 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <button type="button" id="ownWord">Use your words</button>
+
+    <div class="container" id="submitContainer">
+        <label for="word" class="wordLabel">Enter your word:</label>
+        <br>
+        <input type="text" id="word" name="word" maxlength="20">
+        <br>
+        <button for="word" type="submit" id="submitButton">Start</button>
+    </div>
+   
+    <div class="container">
+        <div id="blanks"></div>
+        <div id="keys"></div>
+        <div id="wrongLetters"></div>
+    </div>
+  
+    <script src="index.js"></script>
+</body>
+</html>
