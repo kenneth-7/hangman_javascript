@@ -1,13 +1,16 @@
 
-
-
-
 const submitDiv = document.getElementById("submitContainer");
+const blanksDiv = document.getElementById("blanks");
+const wrongLettersDiv = document.getElementById("wrongLetters");
+const gameScreen = document.getElementById("gameScreen");
+const keyDiv = document.getElementById("keys");
+gameScreen.style.display = "none";
 
 let wordArr;
 let blanksArr = [];
 let wrongLettersArr = [];
 let buttons;
+let count = 0;
 
 function wordToBlanks(currentWord) {
     //  converts each character to underscores
@@ -16,7 +19,7 @@ function wordToBlanks(currentWord) {
 
         blanksArr.push("_");
     }
-    document.getElementById("blanks").innerHTML = blanksArr.join(" ");
+    blanksDiv.innerHTML = blanksArr.join(" ");
 }
 
 
@@ -36,7 +39,7 @@ const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
 
 function showKeys(hide) {
     hide.style.display = "none";
-    const keyDiv = document.getElementById("keys");
+    gameScreen.style.display = "flex";
 
     for (let j = 0; j < alphabet.length; j++) {
         buttons = document.createElement("button");
@@ -44,6 +47,7 @@ function showKeys(hide) {
         buttons.innerHTML = alphabet[j];
         keyDiv.appendChild(buttons);
         buttons.setAttribute("key", alphabet[j]);
+        keyDiv.disabled = true;
     }
 }
 
@@ -58,28 +62,30 @@ function compareLetters(event) {
 
     for (let k = 0; k < wordArr.length; k++) {
         if (wordArr[k].toUpperCase() == event.target.innerHTML) {
-            event.target.style.backgroundColor = "#1C7C54";
+            //  click the right letter
+            event.target.style.backgroundColor = "#faff76";
             event.target.style.color = "black";
             blanksArr[k] = wordArr[k].toUpperCase();
             event.target.disabled = true;
-            document.getElementById("keys").style.backgroundColor = "#262626";
         }
-        document.getElementById("blanks").innerHTML = blanksArr.join(" ");
+        blanksDiv.innerHTML = blanksArr.join(" ");
     }
 
     let check = wordArr.every(element => {
-        //  check if clicked letter is in the word 
+        //  check if clicked letter is not in the given word 
         return element.toUpperCase() !== event.target.innerHTML;
     });
 
-    if (check === true) {
+    if (check === true && event.target.id === "keyButtons") {
+        //  if letter is not  in the word && if you press a button
         wrongLettersArr.push(event.target.getAttribute("key"));
-        event.target.style.backgroundColor = "#D64933";
-        event.target.style.color = "black";
+        event.target.style.backgroundColor = "#2c2c2c";
+        event.target.style.color = "ababab";
         event.target.disabled = true;
-        document.getElementById("keys").style.backgroundColor = "#262626";
+        count++;
+        gameOver();
     }
-    document.getElementById("wrongLetters").innerHTML = wrongLettersArr.join(" ");
+    wrongLettersDiv.innerHTML = wrongLettersArr.join(" ");
 }
 
 
@@ -88,10 +94,19 @@ function wrongLetters() {
     wordArr.forEach(element => {
         if (element.toUpperCase !== event.target.innerHTML) {
             wrongLettersArr.push(event.target.innerHTML);
-            document.getElementById("wrongLetters").innerHTML = wrongLettersArr.join(",");
+            wrongLettersDiv.innerHTML = wrongLettersArr.join(",");
         }
     });
 }
+
+
+function gameOver() {
+    const loserScreen = document.getElementById("loserScreen");
+    if (count >= 8) {
+        loserScreen.style.display = "block";
+    }
+}
+
 
 
 const submitButton = document.getElementById("submitButton");
@@ -100,7 +115,6 @@ submitButton.addEventListener("click", getWord, true);
 const ownWordButton = document.getElementById("ownWord");
 ownWordButton.addEventListener("click", ownWords, true);
 
-const keyDiv = document.getElementById("keys");
 keyDiv.addEventListener("click", compareLetters, true);
 
 //  danach wieder tauschen

@@ -1,11 +1,11 @@
 
 body {
     background-color: #272727;
-    margin: 300px;
+    margin: 0;
 }
 
 .container {
-    margin-top: 64px;
+    margin: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,9 +48,18 @@ body {
 }
 
 #wrongLetters {
-    font-size: 32px;
-    color: #ababab;
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    color: #ff7b47;
     margin-top: 64px;
+}
+
+.colors {
+    color: #D64933;
+    color: #2c2c2c;
+    color: #1C7C54;
 }
 
 #blanks {
@@ -80,4 +89,15 @@ body {
 #keyButtons:hover {
     background-color: #faff76;
     cursor: pointer;
+}
+
+#loserScreen {
+    background-color: #101010;
+    opacity: 0.9;
+    height: 100%;
+    width: 100%;
+    display: none;
+    z-index: +1;
+    position: absolute;
+    top: 0;
 }
