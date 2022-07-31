@@ -92,12 +92,42 @@ body {
 }
 
 #loserScreen {
-    background-color: #101010;
-    opacity: 0.9;
+    background-color: #080808dd;
     height: 100%;
     width: 100%;
-    display: none;
-    z-index: +1;
     position: absolute;
     top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: +1;
+}
+
+#loserMsg {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 128px;
+    color: #faff76;
+}
+
+#solution {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 64px;
+    color: #faff76;
+}
+
+#playAgainButton {
+    background-color: #ababab;
+    border: 2px solid #101010;
+    height: 100px;
+    width: 200px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#playAgainButton:hover {
+    background-color: #faff76;
+    cursor: pointer;
 }

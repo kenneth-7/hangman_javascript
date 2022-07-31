@@ -4,6 +4,11 @@ const blanksDiv = document.getElementById("blanks");
 const wrongLettersDiv = document.getElementById("wrongLetters");
 const gameScreen = document.getElementById("gameScreen");
 const keyDiv = document.getElementById("keys");
+const loserScreen = document.getElementById("loserScreen");
+const solution = document.getElementById("solution");
+
+let textInput = document.getElementById("word");
+
 gameScreen.style.display = "none";
 
 let wordArr;
@@ -24,9 +29,9 @@ function wordToBlanks(currentWord) {
 
 
 function getWord() {
-    let textInput = document.getElementById("word").value;
+    
     //  da showKeys und wordToBlanks(textInput) in showKeys
-    wordToBlanks(textInput);
+    wordToBlanks(textInput.value);
     showKeys(submitDiv);
 }
 
@@ -85,7 +90,7 @@ function compareLetters(event) {
         count++;
         gameOver();
     }
-    wrongLettersDiv.innerHTML = wrongLettersArr.join(" ");
+    wrongLettersDiv.innerHTML = wrongLettersArr.join(", ");
 }
 
 
@@ -101,12 +106,17 @@ function wrongLetters() {
 
 
 function gameOver() {
-    const loserScreen = document.getElementById("loserScreen");
-    if (count >= 8) {
-        loserScreen.style.display = "block";
+    if (count >= 8) {   //  (8)
+        loserScreen.style.display = "flex";
+        solution.innerHTML = "The word was: " + textInput.value;
     }
 }
 
+
+function playAgain() {
+    //  refresh page
+    location.reload();
+}
 
 
 const submitButton = document.getElementById("submitButton");
@@ -115,7 +125,11 @@ submitButton.addEventListener("click", getWord, true);
 const ownWordButton = document.getElementById("ownWord");
 ownWordButton.addEventListener("click", ownWords, true);
 
+
 keyDiv.addEventListener("click", compareLetters, true);
+
+const playAgainButton = document.getElementById("playAgainButton");
+playAgainButton.addEventListener("click", playAgain, true);
 
 //  danach wieder tauschen
 //submitDiv.style.display = "none";
