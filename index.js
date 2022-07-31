@@ -92,7 +92,7 @@ function compareLetters(event) {
     }
     wrongLettersDiv.innerHTML = wrongLettersArr.join(", ");
 }
-
+ 
 
 function wrongLetters() {
 
