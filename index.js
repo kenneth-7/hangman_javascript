@@ -1,21 +1,40 @@
 
 const submitDiv = document.getElementById("submitContainer");
-const blanksDiv = document.getElementById("blanks");
-const wrongLettersDiv = document.getElementById("wrongLetters");
+submitDiv.style.display = "none";
+let textInput = document.getElementById("word");
+
 const gameScreen = document.getElementById("gameScreen");
+gameScreen.style.display = "none";
+const canvas = document.getElementById("hangmanCanvas");
+const blanksDiv = document.getElementById("blanks");
 const keyDiv = document.getElementById("keys");
+const wrongLettersDiv = document.getElementById("wrongLetters");
+
 const loserScreen = document.getElementById("loserScreen");
 const solution = document.getElementById("solution");
 
-let textInput = document.getElementById("word");
-
-gameScreen.style.display = "none";
 
 let wordArr;
 let blanksArr = [];
 let wrongLettersArr = [];
 let buttons;
 let count = 0;
+
+
+function randomWords() {
+    randomWordButton.style.display = "none";
+    ownWordButton.style.display = "none";
+    wordToBlanks("randomword");
+    showKeys();
+}
+
+
+function ownWords() {
+    randomWordButton.style.display = "none";
+    ownWordButton.style.display = "none";
+    submitDiv.style.display = "flex";
+}
+
 
 function wordToBlanks(currentWord) {
     //  converts each character to underscores
@@ -29,10 +48,10 @@ function wordToBlanks(currentWord) {
 
 
 function getWord() {
-    
-    //  da showKeys und wordToBlanks(textInput) in showKeys
+    //  start button
+    submitDiv.style.display = "none";
     wordToBlanks(textInput.value);
-    showKeys(submitDiv);
+    showKeys();
 }
 
 
@@ -42,8 +61,8 @@ const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
 
 //  eigener button für END
 
-function showKeys(hide) {
-    hide.style.display = "none";
+function showKeys() {
+
     gameScreen.style.display = "flex";
 
     for (let j = 0; j < alphabet.length; j++) {
@@ -54,12 +73,6 @@ function showKeys(hide) {
         buttons.setAttribute("key", alphabet[j]);
         keyDiv.disabled = true;
     }
-}
-
-
-function ownWords() {
-    ownWordButton.style.display = "none";
-    submitDiv.style.display = "flex";
 }
 
 
@@ -119,12 +132,14 @@ function playAgain() {
 }
 
 
-const submitButton = document.getElementById("submitButton");
-submitButton.addEventListener("click", getWord, true);
+const randomWordButton = document.getElementById("randomWord");
+randomWordButton.addEventListener("click", randomWords, true);
 
 const ownWordButton = document.getElementById("ownWord");
 ownWordButton.addEventListener("click", ownWords, true);
 
+const submitButton = document.getElementById("submitButton");
+submitButton.addEventListener("click", getWord, true);
 
 keyDiv.addEventListener("click", compareLetters, true);
 
@@ -132,8 +147,7 @@ const playAgainButton = document.getElementById("playAgainButton");
 playAgainButton.addEventListener("click", playAgain, true);
 
 //  danach wieder tauschen
-//submitDiv.style.display = "none";
-ownWordButton.style.display = "none";
+//ownWordButton.style.display = "none";
 
 
 

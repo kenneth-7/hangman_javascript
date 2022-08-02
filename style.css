@@ -56,10 +56,10 @@ body {
     margin-top: 64px;
 }
 
-.colors {
-    color: #D64933;
-    color: #2c2c2c;
-    color: #1C7C54;
+#canvas {
+    height: 256px;
+    width: 128px;
+    background-color: #121212;
 }
 
 #blanks {
