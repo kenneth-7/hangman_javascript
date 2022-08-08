@@ -56,10 +56,10 @@ body {
     margin-top: 64px;
 }
 
-#canvas {
-    height: 256px;
-    width: 128px;
-    background-color: #121212;
+#hangmanCanvas {
+    width: 432px;
+    height: 240px;
+    background-color: #ababab;
 }
 
 #blanks {

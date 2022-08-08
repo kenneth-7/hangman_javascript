@@ -5,7 +5,8 @@ let textInput = document.getElementById("word");
 
 const gameScreen = document.getElementById("gameScreen");
 gameScreen.style.display = "none";
-const canvas = document.getElementById("hangmanCanvas");
+let canvas = document.getElementById("hangmanCanvas");
+let ctx = canvas.getContext("2d");
 const blanksDiv = document.getElementById("blanks");
 const keyDiv = document.getElementById("keys");
 const wrongLettersDiv = document.getElementById("wrongLetters");
@@ -102,6 +103,7 @@ function compareLetters(event) {
         event.target.disabled = true;
         count++;
         gameOver();
+        mistake();
     }
     wrongLettersDiv.innerHTML = wrongLettersArr.join(", ");
 }
@@ -130,6 +132,7 @@ function playAgain() {
     //  refresh page
     location.reload();
 }
+
 
 
 const randomWordButton = document.getElementById("randomWord");
