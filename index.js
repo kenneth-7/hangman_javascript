@@ -1,4 +1,7 @@
 
+//TODO:  'END' button, design, API, spaces, UTF
+
+
 const submitDiv = document.getElementById("submitContainer");
 submitDiv.style.display = "none";
 let textInput = document.getElementById("word");
@@ -14,7 +17,7 @@ const wrongLettersDiv = document.getElementById("wrongLetters");
 const loserScreen = document.getElementById("loserScreen");
 const solution = document.getElementById("solution");
 
-
+let correctWord;
 let wordArr;
 let blanksArr = [];
 let wrongLettersArr = [];
@@ -22,13 +25,18 @@ let buttons;
 let count = 0;
 
 
+const randArr = ["Jazz", "Augenlicht", "Granatapfel", "Gizmo", "Gorilla", 
+    "Javascript", "Duschgel", "Maul", "Bildschirm", "Axt"];
+let rand = Math.floor(Math.random() * 10);
+
+
 function randomWords() {
     randomWordButton.style.display = "none";
     ownWordButton.style.display = "none";
-    wordToBlanks("randomword");
+    wordToBlanks(randArr[rand]);
     showKeys();
 }
-
+ 
 
 function ownWords() {
     randomWordButton.style.display = "none";
@@ -40,6 +48,7 @@ function ownWords() {
 function wordToBlanks(currentWord) {
     //  converts each character to underscores
     wordArr = currentWord.split("");
+    correctWord = currentWord;
     for (let i = 0; i < currentWord.length; i++) {
 
         blanksArr.push("_");
@@ -123,7 +132,7 @@ function wrongLetters() {
 function gameOver() {
     if (count >= 8) {   //  (8)
         loserScreen.style.display = "flex";
-        solution.innerHTML = "The word was: " + textInput.value;
+        solution.innerHTML = "The word was: " + correctWord;
     }
 }
 
@@ -132,7 +141,6 @@ function playAgain() {
     //  refresh page
     location.reload();
 }
-
 
 
 const randomWordButton = document.getElementById("randomWord");
