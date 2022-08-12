@@ -4,6 +4,44 @@ body {
     margin: 0;
 }
 
+#mainPage {
+    margin-top: 100px;
+}
+
+#pickContainer {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 80px;
+    color: #faff76;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#randomWord,#ownWord,#pickPokemon {
+    background-color: #ababab;
+    border: 2px solid #101010;
+    height: 80px;
+    width: 200px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    font-size: 24px;
+    margin-right: 32px;
+}
+
+
+#randomWord:hover, #ownWord:hover,#pickPokemon:hover {
+    background-color: #faff76;
+    cursor: pointer;
+}
+
 .container {
     margin: 300px;
     display: flex;

@@ -9,9 +9,28 @@
 </head>
 <body>
     
-    <div id="pickContainer">
-        <button type="button" id="randomWord">Random words</button>
-        <button type="button" id="ownWord">Your word</button>
+    <div id="mainPage">
+        <div class="title">HAN_MAN</div>
+        <div id="pickContainer">
+            <button type="button" id="randomWord">Random words</button>
+            <button type="button" id="pickPokemon">1st Gen Pokémon</button>
+            <button type="button" id="ownWord">Your word</button>
+        </div>
+    </div> 
+    
+    <div class="container" id="submitContainer">
+        <label for="word" class="wordLabel">Enter your word:</label>
+        <br>
+        <input type="text" id="word" name="word" maxlength="20">
+        <br>
+        <button for="word" type="submit" id="submitButton">Start</button>
+    </div>
+    
+    <div class="container" id="gameScreen">
+        <canvas id="hangmanCanvas"></canvas>
+        <div id="blanks"></div>
+        <div id="keys"></div>
+        <div id="wrongLetters"></div>
     </div>
 
     <div id="loserScreen">
@@ -21,23 +40,9 @@
         <br>
         <button type="button" id="playAgainButton">Play again</button>
     </div>
-
-    <div class="container" id="submitContainer">
-        <label for="word" class="wordLabel">Enter your word:</label>
-        <br>
-        <input type="text" id="word" name="word" maxlength="20">
-        <br>
-        <button for="word" type="submit" id="submitButton">Start</button>
-    </div>
-
-    <div class="container" id="gameScreen">
-        <canvas id="hangmanCanvas"></canvas>
-        <div id="blanks"></div>
-        <div id="keys"></div>
-        <div id="wrongLetters"></div>
-    </div>
     
     <script src="index.js"></script>
     <script src="drawHangman.js"></script>
+    <script src="pokemon.js"></script>
 </body>
 </html>

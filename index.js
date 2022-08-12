@@ -1,6 +1,7 @@
 
-//TODO:  'END' button, design, API, spaces, UTF
+//TODO:   design, winner, API, spaces, 'END' button, UTF
 
+const mainPage = document.getElementById("mainPage");
 
 const submitDiv = document.getElementById("submitContainer");
 submitDiv.style.display = "none";
@@ -25,37 +26,33 @@ let buttons;
 let count = 0;
 
 
-const randArr = ["Jazz", "Augenlicht", "Granatapfel", "Gizmo", "Gorilla", 
-    "Javascript", "Duschgel", "Maul", "Bildschirm", "Axt"];
+const randArr = ["jazz", "augenlicht", "granatapfel", "gizmo", "Gorilla", 
+    "Javascript", "Duschgel", "maul", "bildschirm", "Axt"];
 let rand = Math.floor(Math.random() * 10);
 
 
 function randomWords() {
-    randomWordButton.style.display = "none";
-    ownWordButton.style.display = "none";
+    mainPage.style.display = "none";
     wordToBlanks(randArr[rand]);
     showKeys();
 }
  
 
 function ownWords() {
-    randomWordButton.style.display = "none";
-    ownWordButton.style.display = "none";
+    mainPage.style.display = "none";
     submitDiv.style.display = "flex";
 }
 
 
 function wordToBlanks(currentWord) {
     //  converts each character to underscores
-    wordArr = currentWord.split("");
     correctWord = currentWord;
+    wordArr = currentWord.split("");
     for (let i = 0; i < currentWord.length; i++) {
-
         blanksArr.push("_");
     }
     blanksDiv.innerHTML = blanksArr.join(" ");
 }
-
 
 function getWord() {
     //  start button
@@ -129,13 +126,16 @@ function wrongLetters() {
 }
 
 
+
 function gameOver() {
-    if (count >= 8) {   //  (8)
+    //  first letter to uppercase
+    correctWord = correctWord.charAt(0).toUpperCase() + correctWord.slice(1);
+
+    if (count >= 8) {
         loserScreen.style.display = "flex";
         solution.innerHTML = "The word was: " + correctWord;
     }
 }
-
 
 function playAgain() {
     //  refresh page
@@ -159,8 +159,4 @@ playAgainButton.addEventListener("click", playAgain, true);
 
 //  danach wieder tauschen
 //ownWordButton.style.display = "none";
-
-
-
-
 
