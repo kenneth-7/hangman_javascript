@@ -5,7 +5,7 @@ body {
 }
 
 #mainPage {
-    margin-top: 100px;
+    margin-top: 320px;
 }
 
 #pickContainer {
@@ -42,13 +42,6 @@ body {
     cursor: pointer;
 }
 
-.container {
-    margin: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
 .wordLabel {
     font-family: 'Courier New', Courier, monospace;
@@ -69,6 +62,14 @@ body {
     background-color: #1111119c;
 }
 
+#submitContainer {
+    margin: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 #submitButton {
     background-color: #ababab;
     border: 2px solid #101010;
@@ -85,23 +86,21 @@ body {
     cursor: pointer;
 }
 
-#wrongLetters {
-    font-size: 24px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
-    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 100;
-    color: #ff7b47;
-    margin-top: 64px;
+#gameScreen {
+    margin-top: 160px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #hangmanCanvas {
-    width: 432px;
-    height: 240px;
     background-color: #ababab;
+    border: 2px solid #101010;
 }
 
 #blanks {
-    font-size: 64px;
+    font-size: 64px; 
     color: #faff76;
     margin-bottom: 64px;
 }
@@ -129,7 +128,25 @@ body {
     cursor: pointer;
 }
 
-#loserScreen {
+#wrongLetters {
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    color: #ff7b47;
+    margin-top: 64px;
+}
+
+#guessesLeft {
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    color: #ff7b47;
+    margin: 8px 0 48px 0;
+}
+
+#resultScreen {
     background-color: #080808dd;
     height: 100%;
     width: 100%;
@@ -142,7 +159,7 @@ body {
     z-index: +1;
 }
 
-#loserMsg {
+#message {
     font-family: 'Courier New', Courier, monospace;
     font-size: 128px;
     color: #faff76;
@@ -152,6 +169,20 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 64px;
     color: #faff76;
+}
+
+#leftoverGuesses {
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    color: #ff7b47;
+    
+}
+
+#pokemonSprite {
+    height: 256px;
+    width: 256px;
 }
 
 #playAgainButton {

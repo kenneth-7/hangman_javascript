@@ -18,29 +18,34 @@
         </div>
     </div> 
     
-    <div class="container" id="submitContainer">
+    <div id="submitContainer">
         <label for="word" class="wordLabel">Enter your word:</label>
         <br>
-        <input type="text" id="word" name="word" maxlength="20">
+        <input type="text" id="word" name="word" maxlength="20" onkeypress="return allowOnlyLetters(event,this);">
         <br>
         <button for="word" type="submit" id="submitButton">Start</button>
     </div>
     
-    <div class="container" id="gameScreen">
-        <canvas id="hangmanCanvas"></canvas>
+    <div id="gameScreen">
+        <canvas id="hangmanCanvas" width="240px" height="200px"></canvas>
+        <div id="guessesLeft">Guesses left: 8</div>
         <div id="blanks"></div>
         <div id="keys"></div>
         <div id="wrongLetters"></div>
     </div>
 
-    <div id="loserScreen">
-        <div id="loserMsg">You lost!</div>
-        <br>
+    <div id="resultScreen">
         <div id="solution"></div>
+        <br>
+        <div id="message"></div>
+        <br>
+        <div id="spriteDiv"></div>
+        <br>
+        <div id="leftoverGuesses"></div>
         <br>
         <button type="button" id="playAgainButton">Play again</button>
     </div>
-    
+
     <script src="index.js"></script>
     <script src="drawHangman.js"></script>
     <script src="pokemon.js"></script>

@@ -1,5 +1,6 @@
 
-//TODO:   design, winner, API, spaces, 'END' button, UTF
+//TODO:   logo hover
+//'END' button??, guesses left??, keyboard inputs??
 
 const mainPage = document.getElementById("mainPage");
 
@@ -8,15 +9,16 @@ submitDiv.style.display = "none";
 let textInput = document.getElementById("word");
 
 const gameScreen = document.getElementById("gameScreen");
-gameScreen.style.display = "none";
-let canvas = document.getElementById("hangmanCanvas");
-let ctx = canvas.getContext("2d");
 const blanksDiv = document.getElementById("blanks");
 const keyDiv = document.getElementById("keys");
 const wrongLettersDiv = document.getElementById("wrongLetters");
+const guessesLeft = document.getElementById("guessesLeft");
 
-const loserScreen = document.getElementById("loserScreen");
+const resultScreen = document.getElementById("resultScreen");
+const resultMessage = document.getElementById("message");
 const solution = document.getElementById("solution");
+const leftoverGuesses = document.getElementById("leftoverGuesses");
+const pokeSpriteDiv = document.getElementById("spriteDiv");
 
 let correctWord;
 let wordArr;
@@ -49,10 +51,15 @@ function wordToBlanks(currentWord) {
     correctWord = currentWord;
     wordArr = currentWord.split("");
     for (let i = 0; i < currentWord.length; i++) {
-        blanksArr.push("_");
+        if (wordArr[i] === "-") {
+            blanksArr.push("-");
+        }else {
+            blanksArr.push("_");
+        }
     }
     blanksDiv.innerHTML = blanksArr.join(" ");
 }
+
 
 function getWord() {
     //  start button
@@ -94,6 +101,7 @@ function compareLetters(event) {
             event.target.disabled = true;
         }
         blanksDiv.innerHTML = blanksArr.join(" ");
+        gameOver();
     }
 
     let check = wordArr.every(element => {
@@ -109,14 +117,14 @@ function compareLetters(event) {
         event.target.disabled = true;
         count++;
         gameOver();
-        mistake();
+        mistake();//   drawHangman
     }
     wrongLettersDiv.innerHTML = wrongLettersArr.join(", ");
 }
  
 
 function wrongLetters() {
-
+    //  note wrong guesses
     wordArr.forEach(element => {
         if (element.toUpperCase !== event.target.innerHTML) {
             wrongLettersArr.push(event.target.innerHTML);
@@ -126,20 +134,54 @@ function wrongLetters() {
 }
 
 
-
 function gameOver() {
     //  first letter to uppercase
     correctWord = correctWord.charAt(0).toUpperCase() + correctWord.slice(1);
 
-    if (count >= 8) {
-        loserScreen.style.display = "flex";
+    if (blanksDiv.innerHTML === wordArr.join(" ").toUpperCase()) {
+        gameScreen.style.display = "none";
+        resultScreen.style.display = "flex";
+        resultMessage.innerHTML = "You won!";
         solution.innerHTML = "The word was: " + correctWord;
+        leftoverGuesses.innerHTML  = "You had " + guessCount + " guesses left";
+        //1 guess und 2 guesses!
+        //  only for Pokèmon
+        showSprite();
+    }
+    else if (count >= 8) {
+        gameScreen.style.display = "none";
+        resultScreen.style.display = "flex";
+        resultMessage.innerHTML = "You lost!";
+        solution.innerHTML = "The word was: " + correctWord;
+        //  only for Pokèmon
+        showSprite();
     }
 }
+
 
 function playAgain() {
     //  refresh page
     location.reload();
+}
+
+
+function allowOnlyLetters(e, t) {    
+   if (window.event)    
+   {    
+      var charCode = window.event.keyCode;    
+   }    
+   else if (e)   
+   {    
+      var charCode = e.which;    
+   }    
+   else { return true; }    
+   if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))  
+       return true;    
+   else  
+   {    
+      alert("Please enter only alphabets");    
+      return false;    
+   }           
 }
 
 
