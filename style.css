@@ -1,4 +1,3 @@
-
 body {
     background-color: #272727;
     margin: 0;
@@ -24,24 +23,28 @@ body {
     align-items: center;
 }
 
-.title:hover a p.title:after{
+.title:hover a p.title:after {
     content: 'NEW';
 }
 
-#randomWord,#ownWord,#pickPokemon {
+#randomWord,
+#ownWord,
+#pickPokemon {
     background-color: #ababab;
     border: 2px solid #101010;
     height: 80px;
     width: 200px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
-    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
     font-size: 24px;
     margin-right: 32px;
 }
 
 
-#randomWord:hover, #ownWord:hover,#pickPokemon:hover {
+#randomWord:hover,
+#ownWord:hover,
+#pickPokemon:hover {
     background-color: #faff76;
     cursor: pointer;
 }
@@ -79,8 +82,8 @@ body {
     border: 2px solid #101010;
     height: 32px;
     width: 80px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
-    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
     font-size: 18px;
 }
@@ -104,7 +107,7 @@ body {
 }
 
 #blanks {
-    font-size: 64px; 
+    font-size: 64px;
     color: #faff76;
     margin-bottom: 64px;
 }
@@ -121,8 +124,8 @@ body {
     border: 1px solid #101010;
     border-radius: 3px;
     font-size: 18px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
-    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
     margin: 3px 3px 0 0;
 }
@@ -134,8 +137,8 @@ body {
 
 #wrongLetters {
     font-size: 24px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
-    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
     color: #ff7b47;
     margin-top: 64px;
@@ -143,8 +146,8 @@ body {
 
 #guessesLeft {
     font-size: 16px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
-    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
     color: #ff7b47;
     margin: 8px 0 48px 0;
@@ -177,11 +180,11 @@ body {
 
 #leftoverGuesses {
     font-size: 24px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
-    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
     color: #ff7b47;
-    
+
 }
 
 #pokemonSprite {
@@ -194,8 +197,8 @@ body {
     border: 2px solid #101010;
     height: 100px;
     width: 200px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
-    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 300;
     font-size: 20px;
 }
@@ -204,4 +207,3 @@ body {
     background-color: #faff76;
     cursor: pointer;
 }
-

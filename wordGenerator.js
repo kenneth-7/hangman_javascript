@@ -1,5 +1,4 @@
 
-
 function getRandomWord() {
     const url = `https://random-word-api.herokuapp.com/word`;
     fetch(url)
@@ -13,16 +12,16 @@ function getRandomWord() {
             else { //stop 
             }
         });
-        stopper++;    
+    stopper++;
 }
 
-    
+
 function randomWords(data) {
     getRandomWord();
     mainPage.style.display = "none";
     wordToBlanks(data[0]);
     showKeys();
 }
-    
+
 const randomWordButton = document.getElementById("randomWord");
 randomWordButton.addEventListener("click", randomWords, true);

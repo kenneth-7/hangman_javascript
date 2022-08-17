@@ -1,5 +1,5 @@
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +7,18 @@
     <title>Hangman</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <div id="mainPage">
-        <div class="title" onmouseover="this.innerHTML='HANGMAN'" 
-            onmouseleave="this.innerHTML='H_NGM_N'">H_NGM_N</div>
+        <div class="title" onmouseover="this.innerHTML='HANGMAN'" onmouseleave="this.innerHTML='H_NGM_N'">H_NGM_N</div>
         <div id="pickContainer">
             <button type="button" id="randomWord">Random words (hard)</button>
             <button type="button" id="pickPokemon">1st Gen Pokémon</button>
             <button type="button" id="ownWord">Enter your<br>word</button>
         </div>
-    </div> 
-    
+    </div>
+
     <div id="submitContainer">
         <label for="word" class="wordLabel">Enter your word:</label>
         <br>
@@ -26,7 +26,7 @@
         <br>
         <button for="word" type="submit" id="submitButton">Start</button>
     </div>
-    
+
     <div id="gameScreen">
         <canvas id="hangmanCanvas" width="240px" height="200px"></canvas>
         <div id="guessesLeft">Guesses left: 8</div>
@@ -52,4 +52,5 @@
     <script src="pokemonGenerator.js"></script>
     <script src="wordGenerator.js"></script>
 </body>
+
 </html>

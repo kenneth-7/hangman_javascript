@@ -15,7 +15,7 @@ function fetchPokemon() {
                 id: data.id,
                 image: data.sprites['front_default']
             };
-            
+
             if (stopper === 1) {
                 getPokemon(pokemon);
                 showSprite(pokemon);
@@ -23,7 +23,7 @@ function fetchPokemon() {
             else { //stop 
             }
         });
-        stopper++;
+    stopper++;
 }
 
 function getPokemon(pokemon) {

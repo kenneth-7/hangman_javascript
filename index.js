@@ -25,14 +25,6 @@ let buttons;
 let count = 0;
 
 
-const randArr = ["jazz", "augenlicht", "granatapfel", "gizmo", "Gorilla", 
-    "Javascript", "Duschgel", "maul", "bildschirm", "Axt"];
-let rand = Math.floor(Math.random() * 10);
-
-
-
- 
-
 function ownWords() {
     mainPage.style.display = "none";
     submitDiv.style.display = "flex";
@@ -46,7 +38,7 @@ function wordToBlanks(currentWord) {
     for (let i = 0; i < currentWord.length; i++) {
         if (wordArr[i] === "-") {
             blanksArr.push("-");
-        }else {
+        } else {
             blanksArr.push("_");
         }
     }
@@ -66,10 +58,8 @@ const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
     'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
     'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-//  eigener button für END
 
 function showKeys() {
-
     gameScreen.style.display = "flex";
 
     for (let j = 0; j < alphabet.length; j++) {
@@ -84,7 +74,6 @@ function showKeys() {
 
 
 function compareLetters(event) {
-
     for (let k = 0; k < wordArr.length; k++) {
         if (wordArr[k].toUpperCase() == event.target.innerHTML) {
             //  click the right letter
@@ -114,7 +103,7 @@ function compareLetters(event) {
     }
     wrongLettersDiv.innerHTML = wrongLettersArr.join(", ");
 }
- 
+
 
 function wrongLetters() {
     //  note wrong guesses
@@ -136,8 +125,12 @@ function gameOver() {
         resultScreen.style.display = "flex";
         resultMessage.innerHTML = "You won!";
         solution.innerHTML = "The word was: " + correctWord;
-        leftoverGuesses.innerHTML  = "You had " + guessCount + " guesses left";
-        //1 guess und 2 guesses!
+        if (guessCount === 1) {
+            leftoverGuesses.innerHTML = "You had " + guessCount + " guess left";
+        }
+        else {//    correct grammar
+            leftoverGuesses.innerHTML = "You had " + guessCount + " guesses left";
+        }
         //  only for Pokèmon
         showSprite();
     }
@@ -158,26 +151,21 @@ function playAgain() {
 }
 
 
-function allowOnlyLetters(e, t) {    
-   if (window.event)    
-   {    
-      var charCode = window.event.keyCode;    
-   }    
-   else if (e)   
-   {    
-      var charCode = e.which;    
-   }    
-   else { return true; }    
-   if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))  
-       return true;    
-   else  
-   {    
-      alert("Please enter only alphabets");    
-      return false;    
-   }           
+function allowOnlyLetters(e, t) {
+    if (window.event) {
+        var charCode = window.event.keyCode;
+    }
+    else if (e) {
+        var charCode = e.which;
+    }
+    else { return true; }
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+        return true;
+    else {
+        alert("Please enter only alphabets");
+        return false;
+    }
 }
-
-
 
 
 const ownWordButton = document.getElementById("ownWord");
@@ -190,7 +178,3 @@ keyDiv.addEventListener("click", compareLetters, true);
 
 const playAgainButton = document.getElementById("playAgainButton");
 playAgainButton.addEventListener("click", playAgain, true);
-
-//  danach wieder tauschen
-//ownWordButton.style.display = "none";
-
