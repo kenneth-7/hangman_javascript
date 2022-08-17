@@ -10,11 +10,12 @@
 <body>
     
     <div id="mainPage">
-        <div class="title">HAN_MAN</div>
+        <div class="title" onmouseover="this.innerHTML='HANGMAN'" 
+            onmouseleave="this.innerHTML='H_NGM_N'">H_NGM_N</div>
         <div id="pickContainer">
-            <button type="button" id="randomWord">Random words</button>
+            <button type="button" id="randomWord">Random words (hard)</button>
             <button type="button" id="pickPokemon">1st Gen Pokémon</button>
-            <button type="button" id="ownWord">Your word</button>
+            <button type="button" id="ownWord">Enter your<br>word</button>
         </div>
     </div> 
     
@@ -48,6 +49,7 @@
 
     <script src="index.js"></script>
     <script src="drawHangman.js"></script>
-    <script src="pokemon.js"></script>
+    <script src="pokemonGenerator.js"></script>
+    <script src="wordGenerator.js"></script>
 </body>
 </html>

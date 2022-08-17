@@ -24,6 +24,10 @@ body {
     align-items: center;
 }
 
+.title:hover a p.title:after{
+    content: 'NEW';
+}
+
 #randomWord,#ownWord,#pickPokemon {
     background-color: #ababab;
     border: 2px solid #101010;

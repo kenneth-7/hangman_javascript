@@ -1,5 +1,4 @@
 
-
 let randPokemon = Math.floor(Math.random() * 151);
 let stopper = 0;
 let pokeCheck = false;
@@ -26,7 +25,6 @@ function fetchPokemon() {
         });
         stopper++;
 }
-  
 
 function getPokemon(pokemon) {
     fetchPokemon();

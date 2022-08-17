@@ -1,7 +1,4 @@
 
-//TODO:   logo hover
-//'END' button??, guesses left??, keyboard inputs??
-
 const mainPage = document.getElementById("mainPage");
 
 const submitDiv = document.getElementById("submitContainer");
@@ -33,11 +30,7 @@ const randArr = ["jazz", "augenlicht", "granatapfel", "gizmo", "Gorilla",
 let rand = Math.floor(Math.random() * 10);
 
 
-function randomWords() {
-    mainPage.style.display = "none";
-    wordToBlanks(randArr[rand]);
-    showKeys();
-}
+
  
 
 function ownWords() {
@@ -71,7 +64,7 @@ function getWord() {
 
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
     'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-    'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'END'];
+    'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 //  eigener button für END
 
@@ -185,8 +178,7 @@ function allowOnlyLetters(e, t) {
 }
 
 
-const randomWordButton = document.getElementById("randomWord");
-randomWordButton.addEventListener("click", randomWords, true);
+
 
 const ownWordButton = document.getElementById("ownWord");
 ownWordButton.addEventListener("click", ownWords, true);
