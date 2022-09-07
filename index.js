@@ -29,6 +29,7 @@ let buttons;
 let count = 0;
 let space
 
+
 function ownWords() {
     mainPage.style.display = "none";
     submitDiv.style.display = "flex";

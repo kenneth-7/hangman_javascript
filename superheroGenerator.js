@@ -3,6 +3,7 @@ let randomSuperhero = Math.floor(Math.random() * 699);
 let heroCheck = false;
 let heroStopper = 0;
 
+
 function fetchSuperhero() {
     const url = `https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/${randomSuperhero}.json`;
     fetch(url)
@@ -26,7 +27,6 @@ function fetchSuperhero() {
         });
     heroStopper++;
 }
-
 
 
 function getSuperhero(superhero) {

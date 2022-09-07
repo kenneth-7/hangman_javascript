@@ -3,6 +3,7 @@ let randPokemon = Math.floor(Math.random() * 151);
 let pokeCheck = false;
 let stopper = 0;
 
+
 function fetchPokemon() {
     const url = `https://pokeapi.co/api/v2/pokemon/${randPokemon}`;
     fetch(url)
@@ -23,6 +24,7 @@ function fetchPokemon() {
     stopper++;
 }
 
+
 function getPokemon(pokemon) {
     fetchPokemon();
     pokeCheck = true;
@@ -31,6 +33,7 @@ function getPokemon(pokemon) {
     wordToBlanks(pokemon.name);
     showKeys();
 }
+
 
 function showPokemon(pokemon) {
     if (pokeCheck) {

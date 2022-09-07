@@ -2,6 +2,7 @@
 let animalCheck = false;
 let animalStopper = 0;
 
+
 function fetchAnimal() {
     const url = `https://zoo-animal-api.herokuapp.com/animals/rand`;
     fetch(url)
@@ -22,6 +23,7 @@ function fetchAnimal() {
     animalStopper++;
 }
 
+
 function getAnimal(animal) {
     fetchAnimal();
     animalCheck = true;
@@ -31,6 +33,7 @@ function getAnimal(animal) {
     showKeys();
 }
 
+
 function showAnimal(animal) {
     if (animalCheck) {
         animalImage = document.createElement("img");
@@ -39,6 +42,7 @@ function showAnimal(animal) {
         spriteDiv.appendChild(animalImage);
     }
 }
+
 
 const animalButton = document.getElementById("randomAnimal");
 animalButton.addEventListener("click", getAnimal, true);
