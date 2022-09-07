@@ -1,3 +1,7 @@
+//  return btn
+//  characters
+//  extra api
+
 
 const mainPage = document.getElementById("mainPage");
 
@@ -15,7 +19,7 @@ const resultScreen = document.getElementById("resultScreen");
 const resultMessage = document.getElementById("message");
 const solution = document.getElementById("solution");
 const leftoverGuesses = document.getElementById("leftoverGuesses");
-const pokeSpriteDiv = document.getElementById("spriteDiv");
+const spriteDiv = document.getElementById("spriteDiv");
 
 let correctWord;
 let wordArr;
@@ -23,7 +27,7 @@ let blanksArr = [];
 let wrongLettersArr = [];
 let buttons;
 let count = 0;
-
+let space
 
 function ownWords() {
     mainPage.style.display = "none";
@@ -36,10 +40,20 @@ function wordToBlanks(currentWord) {
     correctWord = currentWord;
     wordArr = currentWord.split("");
     for (let i = 0; i < currentWord.length; i++) {
+
         if (wordArr[i] === "-") {
             blanksArr.push("-");
-        } else {
+        }
+        else if (wordArr[i] === ' ') {
+            blanksArr.push('&nbsp;');
+            wordArr.splice(i, 1, '&nbsp;');
+        }
+        else if (wordArr[i] === "'") {
+            blanksArr.push("'");
+        }
+        else {
             blanksArr.push("_");
+            wordArr[i] = wordArr[i].toLowerCase();
         }
     }
     blanksDiv.innerHTML = blanksArr.join(" ");
@@ -92,7 +106,7 @@ function compareLetters(event) {
     });
 
     if (check === true && event.target.id === "keyButtons") {
-        //  if letter is not  in the word && if you press a button
+        //  if letter is not in the word && if you press a button
         wrongLettersArr.push(event.target.getAttribute("key"));
         event.target.style.backgroundColor = "#2c2c2c";
         event.target.style.color = "ababab";
@@ -120,10 +134,11 @@ function gameOver() {
     //  first letter to uppercase
     correctWord = correctWord.charAt(0).toUpperCase() + correctWord.slice(1);
 
-    if (blanksDiv.innerHTML === wordArr.join(" ").toUpperCase()) {
+    if (blanksDiv.innerHTML.toLowerCase() === wordArr.join(" ")) {
         gameScreen.style.display = "none";
         resultScreen.style.display = "flex";
         resultMessage.innerHTML = "You won!";
+        resultMessage.style.color = "#23F0C7";
         solution.innerHTML = "The word was: " + correctWord;
         if (guessCount === 1) {
             leftoverGuesses.innerHTML = "You had " + guessCount + " guess left";
@@ -131,16 +146,13 @@ function gameOver() {
         else {//    correct grammar
             leftoverGuesses.innerHTML = "You had " + guessCount + " guesses left";
         }
-        //  only for Pokèmon
-        showSprite();
     }
     else if (count >= 8) {
         gameScreen.style.display = "none";
         resultScreen.style.display = "flex";
         resultMessage.innerHTML = "You lost!";
+        resultMessage.style.color = "#FE5F55";
         solution.innerHTML = "The word was: " + correctWord;
-        //  only for Pokèmon
-        showSprite();
     }
 }
 
@@ -159,7 +171,8 @@ function allowOnlyLetters(e, t) {
         var charCode = e.which;
     }
     else { return true; }
-    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode = 32))
+    //  only allow alphabetic characters and spacebar
         return true;
     else {
         alert("Please enter only alphabets");

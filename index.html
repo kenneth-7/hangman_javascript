@@ -13,9 +13,11 @@
     <div id="mainPage">
         <div class="title" onmouseover="this.innerHTML='HANGMAN'" onmouseleave="this.innerHTML='H_NGM_N'">H_NGM_N</div>
         <div id="pickContainer">
-            <button type="button" id="randomWord">Random words (hard)</button>
-            <button type="button" id="pickPokemon">1st Gen Pokémon</button>
-            <button type="button" id="ownWord">Enter your<br>word</button>
+            <button type="button" id="randomWord">Random english words</button>
+            <button type="button" id="randomPokemon">1st Gen Pokémon</button>
+            <button type="button" id="randomSuperhero">Random Superheros</button>
+            <button type="button" id="randomAnimal">Random<br>Animals</button>
+            <button type="button" id="ownWord">Enter your<br>words</button>
         </div>
     </div>
 
@@ -36,9 +38,9 @@
     </div>
 
     <div id="resultScreen">
-        <div id="solution"></div>
-        <br>
         <div id="message"></div>
+        <br>
+        <div id="solution"></div>
         <br>
         <div id="spriteDiv"></div>
         <br>
@@ -51,6 +53,8 @@
     <script src="drawHangman.js"></script>
     <script src="pokemonGenerator.js"></script>
     <script src="wordGenerator.js"></script>
+    <script src="animalGenerator.js"></script>
+    <script src="superheroGenerator.js"></script>
 </body>
 
 </html>

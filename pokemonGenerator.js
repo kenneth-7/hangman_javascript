@@ -1,7 +1,7 @@
 
 let randPokemon = Math.floor(Math.random() * 151);
-let stopper = 0;
 let pokeCheck = false;
+let stopper = 0;
 
 function fetchPokemon() {
     const url = `https://pokeapi.co/api/v2/pokemon/${randPokemon}`;
@@ -12,15 +12,12 @@ function fetchPokemon() {
         .then((data) => {
             const pokemon = {
                 name: data.name,
-                id: data.id,
                 image: data.sprites['front_default']
             };
 
             if (stopper === 1) {
                 getPokemon(pokemon);
-                showSprite(pokemon);
-            }
-            else { //stop 
+                showPokemon(pokemon);
             }
         });
     stopper++;
@@ -35,15 +32,15 @@ function getPokemon(pokemon) {
     showKeys();
 }
 
-function showSprite(pokemon) {
+function showPokemon(pokemon) {
     if (pokeCheck) {
         pokeSprite = document.createElement("img");
         pokeSprite.id = "pokemonSprite";
         pokeSprite.src = pokemon.image;
-        pokeSpriteDiv.appendChild(pokeSprite);
+        spriteDiv.appendChild(pokeSprite);
     }
 }
 
 
-const pokemonButton = document.getElementById("pickPokemon");
+const pokemonButton = document.getElementById("randomPokemon");
 pokemonButton.addEventListener("click", getPokemon, true);

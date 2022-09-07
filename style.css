@@ -29,7 +29,9 @@ body {
 
 #randomWord,
 #ownWord,
-#pickPokemon {
+#randomPokemon,
+#randomAnimal,
+#randomSuperhero {
     background-color: #ababab;
     border: 2px solid #101010;
     height: 80px;
@@ -44,7 +46,9 @@ body {
 
 #randomWord:hover,
 #ownWord:hover,
-#pickPokemon:hover {
+#randomPokemon:hover,
+#randomAnimal:hover,
+#randomSuperhero:hover {
     background-color: #faff76;
     cursor: pointer;
 }
@@ -190,7 +194,15 @@ body {
 #pokemonSprite {
     height: 256px;
     width: 256px;
+    image-rendering: pixelated;
 }
+
+#animalImage {
+    height: 320px;
+    width: auto;
+}
+
+
 
 #playAgainButton {
     background-color: #ababab;
