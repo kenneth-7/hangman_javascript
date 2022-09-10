@@ -22,8 +22,7 @@ function fetchSuperhero() {
             if (heroStopper === 1) {
                 getSuperhero(superhero);
                 showSuperhero(superhero);
-            } 
-            console.log(superhero.name);
+            }
         });
     heroStopper++;
 }

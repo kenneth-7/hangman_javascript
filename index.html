@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hangman with various API's">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
     <title>Hangman</title>
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,18 +16,18 @@
     <div id="mainPage">
         <div class="title" onmouseover="this.innerHTML='HANGMAN'" onmouseleave="this.innerHTML='H_NGM_N'">H_NGM_N</div>
         <div id="pickContainer">
-            <button type="button" id="randomWord">Random english words</button>
+            <button type="button" id="ownWord">Your words</button>
+            <button type="button" id="randomSuperhero">Superheros</button>
             <button type="button" id="randomPokemon">1st Gen Pokémon</button>
-            <button type="button" id="randomSuperhero">Random Superheros</button>
-            <button type="button" id="randomAnimal">Random<br>Animals</button>
-            <button type="button" id="ownWord">Enter your<br>words</button>
+            <button type="button" id="randomAnimal">Animals</button>
+            <button type="button" id="randomWord">Random Words</button>
         </div>
     </div>
 
     <div id="submitContainer">
         <label for="word" class="wordLabel">Enter your word:</label>
         <br>
-        <input type="text" id="word" name="word" maxlength="20" onkeypress="return allowOnlyLetters(event,this);">
+        <input type="password" id="word" name="word" maxlength="20" onkeypress="return allowOnlyLetters(event,this);">
         <br>
         <button for="word" type="submit" id="submitButton">Start</button>
     </div>
@@ -51,10 +54,10 @@
 
     <script src="index.js"></script>
     <script src="drawHangman.js"></script>
-    <script src="pokemonGenerator.js"></script>
-    <script src="wordGenerator.js"></script>
-    <script src="animalGenerator.js"></script>
-    <script src="superheroGenerator.js"></script>
+    <script src="apiFiles/pokemonGenerator.js"></script>
+    <script src="apiFiles/wordGenerator.js"></script>
+    <script src="apiFiles/animalGenerator.js"></script>
+    <script src="apiFiles/superheroGenerator.js"></script>
 </body>
 
 </html>

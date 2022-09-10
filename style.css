@@ -8,31 +8,28 @@ body {
     margin-top: 320px;
 }
 
-#pickContainer {
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .title {
     font-family: 'Courier New', Courier, monospace;
     font-size: 80px;
     color: #faff76;
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: auto;
 }
 
 .title:hover a p.title:after {
     content: 'NEW';
 }
 
-#randomWord,
-#ownWord,
-#randomPokemon,
-#randomAnimal,
-#randomSuperhero {
+#pickContainer {
+    margin: 100px 20% 0 20%;
+    display: block;
+    width: 80%;
+    align-items: center;
+    overflow: auto;
+}
+
+#pickContainer button {
     background-color: #ababab;
     border: 2px solid #101010;
     height: 80px;
@@ -41,31 +38,28 @@ body {
         'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
     font-size: 24px;
-    margin-right: 32px;
+    margin: 0 32px 4% 0;
+    padding: 0 5px 5px 0;
 }
 
-
-#randomWord:hover,
-#ownWord:hover,
-#randomPokemon:hover,
-#randomAnimal:hover,
-#randomSuperhero:hover {
+#pickContainer button:hover {
     background-color: #faff76;
     cursor: pointer;
 }
 
-
 .wordLabel {
+    width: 300px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 32px;
+    font-size: 31px;
     color: #faff76;
 }
 
 #word {
     background-color: #272727;
-    color: #ababab;
+    width: 300px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
+    color: #ababab;
     border: 2px solid #ababab;
 }
 
@@ -75,7 +69,7 @@ body {
 }
 
 #submitContainer {
-    margin: 360px;
+    margin: 376px 20% 376px 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,7 +79,7 @@ body {
 #submitButton {
     background-color: #ababab;
     border: 2px solid #101010;
-    height: 32px;
+    height: 34px;
     width: 80px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
         'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -109,6 +103,15 @@ body {
 #hangmanCanvas {
     background-color: #ababab;
     border: 2px solid #101010;
+}
+
+#guessesLeft {
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    color: #ff7b47;
+    margin: 8px 0 48px 0;
 }
 
 #blanks {
@@ -147,15 +150,6 @@ body {
     font-weight: 100;
     color: #ff7b47;
     margin-top: 64px;
-}
-
-#guessesLeft {
-    font-size: 16px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
-        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 100;
-    color: #ff7b47;
-    margin: 8px 0 48px 0;
 }
 
 #resultScreen {
@@ -198,12 +192,11 @@ body {
     image-rendering: pixelated;
 }
 
-#animalImage {
+
+#animalImage, #superheroImage {
     height: 320px;
     width: auto;
 }
-
-
 
 #playAgainButton {
     background-color: #ababab;
@@ -212,11 +205,75 @@ body {
     width: 200px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
         'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 300;
-    font-size: 20px;
+        font-size: 20px;
+        font-weight: 300;
 }
 
 #playAgainButton:hover {
     background-color: #faff76;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 620px) {
+    #mainPage {
+        margin-top: 25%;
+    }
+
+    #pickContainer, #pickContainer button {
+        width: 80%;
+    }
+
+    #blanks {
+        height: auto;
+        font-size: 32px;
+        margin: 16px 0 96px 0;
+    }
+
+    #keys {
+        width: 370px;
+        height: auto;
+    }
+    
+    #keyButtons {
+        height: 40px;
+        width: 40px; 
+        font-size: 12px;
+        margin: 1px 1px 0 0;
+    }
+
+    #wrongLetters {
+        font-size: 16px;
+    }
+
+    #message {
+        font-size: 72px;
+    }
+
+    #solution {
+        width: 80%;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    #leftoverGuesses {
+        font-size: 16px;
+    }
+
+    #playAgainButton {
+        height: 70px;
+        width: 140px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    #pokemonSprite {
+        height: 176px;
+        width: 176px;
+        image-rendering: pixelated;
+    }
+
+    #animalImage, #superheroImage {
+        height: 176px;
+        width: auto;
+    }
 }
