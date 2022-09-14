@@ -52,6 +52,7 @@ function selectPokemon() {
     selectDiv.style.display = "none";
 }
 
+
 const pokemonDiv = document.getElementById("pokemonDiv");
 pokemonDiv.style.display = "none";
 

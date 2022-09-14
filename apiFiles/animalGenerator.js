@@ -2,7 +2,6 @@
 let animalCheck = false;
 let animalStopper = 0;
 
-
 function fetchAnimal() {
     const url = `https://zoo-animal-api.herokuapp.com/animals/rand`;
     fetch(url)

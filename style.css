@@ -214,6 +214,7 @@ body {
     cursor: pointer;
 }
 
+
 @media only screen and (max-width: 620px) {
     #mainPage {
         margin-top: 15%;

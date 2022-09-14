@@ -1,5 +1,4 @@
 
-
 const mainPage = document.getElementById("mainPage");
 
 const selectDiv = document.getElementById("selectScreen");
