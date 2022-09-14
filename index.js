@@ -1,10 +1,8 @@
-//  return btn
-//  characters
-//  extra api
 
 
 const mainPage = document.getElementById("mainPage");
 
+const selectDiv = document.getElementById("selectScreen");
 const submitDiv = document.getElementById("submitContainer");
 submitDiv.style.display = "none";
 let textInput = document.getElementById("word");
@@ -27,7 +25,6 @@ let blanksArr = [];
 let wrongLettersArr = [];
 let buttons;
 let count = 0;
-let space
 
 
 function ownWords() {
@@ -41,22 +38,20 @@ function wordToBlanks(currentWord) {
     correctWord = currentWord;
     wordArr = currentWord.split("");
     for (let i = 0; i < currentWord.length; i++) {
-
-        if (wordArr[i] === "-") {
-            blanksArr.push("-");
-        }
-        else if (wordArr[i] === ' ') {
+        if (wordArr[i] === ' ') {
             blanksArr.push('&nbsp;');
             wordArr.splice(i, 1, '&nbsp;');
         }
-        else if (wordArr[i] === "'") {
-            blanksArr.push("'");
+        else if (!alphabet.includes(wordArr[i].toUpperCase())) {
+            blanksArr.push(wordArr[i]);
         }
-        else {
+        else{
             blanksArr.push("_");
             wordArr[i] = wordArr[i].toLowerCase();
         }
     }
+    console.log(blanksArr);
+    console.log(wordArr);
     blanksDiv.innerHTML = blanksArr.join(" ");
 }
 
@@ -166,12 +161,14 @@ function playAgain() {
 
 function allowOnlyLetters(e, t) {
     if (window.event) {
-        var charCode = window.event.keyCode;
+        let charCode = window.event.keyCode;
     }
     else if (e) {
-        var charCode = e.which;
+        let charCode = e.which;
     }
-    else { return true; }
+    else { 
+        return true; 
+    }
     if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode = 32))
     //  only allow alphabetic characters and spacebar
         return true;

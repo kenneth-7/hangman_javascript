@@ -25,7 +25,6 @@ function fetchAnimal() {
 
 
 function getAnimal(animal) {
-    fetchAnimal();
     animalCheck = true;
 
     mainPage.style.display = "none";
@@ -45,4 +44,4 @@ function showAnimal(animal) {
 
 
 const animalButton = document.getElementById("randomAnimal");
-animalButton.addEventListener("click", getAnimal, true);
+animalButton.addEventListener("click", fetchAnimal, true);

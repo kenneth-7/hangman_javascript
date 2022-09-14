@@ -17,11 +17,10 @@ function getRandomWord() {
 
 
 function randomWords(data) {
-    getRandomWord();
     mainPage.style.display = "none";
     wordToBlanks(data[0]);
     showKeys();
 }
 
 const randomWordButton = document.getElementById("randomWord");
-randomWordButton.addEventListener("click", randomWords, true);
+randomWordButton.addEventListener("click", getRandomWord, true);

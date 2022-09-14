@@ -29,7 +29,6 @@ function fetchSuperhero() {
 
 
 function getSuperhero(superhero) {
-    fetchSuperhero();
     heroCheck = true;
 
     mainPage.style.display = "none";
@@ -48,6 +47,6 @@ function showSuperhero(superhero) {
 
 
 const superheroButton = document.getElementById("randomSuperhero");
-superheroButton.addEventListener("click", getSuperhero, true);
+superheroButton.addEventListener("click", fetchSuperhero, true);
 
 //  64, 67, 116, 132, 175, 190, 326, 328, 349, 515, 544, 614

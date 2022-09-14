@@ -1,5 +1,4 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,15 +11,21 @@
 </head>
 
 <body>
-
     <div id="mainPage">
         <div class="title" onmouseover="this.innerHTML='HANGMAN'" onmouseleave="this.innerHTML='H_NGM_N'">H_NGM_N</div>
-        <div id="pickContainer">
+        <div class="pickContainer" id="selectScreen">
             <button type="button" id="ownWord">Your words</button>
             <button type="button" id="randomSuperhero">Superheros</button>
-            <button type="button" id="randomPokemon">1st Gen Pokémon</button>
+            <button type="button" id="randomPokemon">Pokémon</button>
             <button type="button" id="randomAnimal">Animals</button>
             <button type="button" id="randomWord">Random Words</button>
+        </div>
+        <div class="pickContainer" id="pokemonDiv">
+            <button type="button" id="pokemonGen1">1st Generation</button>
+            <button type="button" id="pokemonGen2">2nd Generation</button>
+            <button type="button" id="pokemonGen3">3rd Generation</button>
+            <button type="button" id="pokemonGen4">4th Generation</button>
+            <button type="button" id="pokemonGen5">5th Generation</button>
         </div>
     </div>
 
@@ -59,5 +64,4 @@
     <script src="apiFiles/animalGenerator.js"></script>
     <script src="apiFiles/superheroGenerator.js"></script>
 </body>
-
 </html>
